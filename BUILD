@@ -1,5 +1,4 @@
-#load("//:test2.bzl", "gen_cpp")
-load("//:test.bzl", "gen_cpp")
+load("//:qt_rcc.bzl", "rcc_cpp")
 
 filegroup(
     name = "test_data",
@@ -9,11 +8,16 @@ filegroup(
     ]
 )
 
-gen_cpp(
+rcc_cpp(
     name = "test",
-    #srcs=[":test_data"]
-    data = [
-        "data/my.file",
-        "data/my.file2",
-    ]
+    data = {
+        #"test2.bzl": "prefix1",
+        ":test_data": "prefix1",
+    }
 )
+
+cc_library(
+    name = "test_bin",
+    srcs = [":test"],
+)
+
