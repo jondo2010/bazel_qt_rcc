@@ -1,6 +1,6 @@
 def _build_qrc_impl(ctx):
     content = ['<RCC>', '<qresource prefix="%s">' % ctx.label.name, ]
-    content += ['<file>%s</file>' % f.path for f in ctx.files.srcs]
+    content += ['<file>%s</file>' % f.short_path for f in ctx.files.srcs]
     content += ['</qresource>', '</RCC>', ]
     ctx.actions.write(
         output = ctx.outputs.qrc,

@@ -7,6 +7,6 @@ exports_files([
 
 new_local_repository(
     name = "qt",
-    path = "/home/john/Qt/5.10.1/gcc_64",
+    path = "/Users/johughes/Qt/5.10.0/clang_64",
     build_file_content = QT_BUILD_FILE_CONTENT,
 )
